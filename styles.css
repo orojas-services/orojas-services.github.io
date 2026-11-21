@@ -1684,58 +1684,108 @@ footer a {
    SERVICES DROPDOWN + NAV HOVER
    ========================================================= */
 
-.main-nav > a,
-.nav-dropdown-button {
+
+/* ---------------------------------------------------------
+   Normal navigation links
+   --------------------------------------------------------- */
+
+.main-nav > a {
   position: relative;
-  padding-bottom: 6px;
-  border-bottom: 2px solid transparent;
-  text-decoration: none;
 }
 
 
-/* Current page red underline */
+/* Red underline when hovering non-active navigation links */
 
-.main-nav > a.active {
-  border-bottom-color: #9D2235;
+.main-nav > a:not(.active)::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: -2px;
+
+  height: 2px;
+
+  background: #9D2235;
+
+  transform: scaleX(0);
+  transform-origin: center;
+
+  transition: transform 0.15s ease;
 }
 
 
-/* Red underline on hover */
-
-.main-nav > a:hover,
-.nav-dropdown-button:hover,
-.nav-dropdown:hover .nav-dropdown-button {
-  border-bottom-color: #9D2235;
+.main-nav > a:not(.active):hover::after {
+  transform: scaleX(1);
 }
 
 
-/* Dropdown container */
+/* =========================================================
+   SERVICES
+   ========================================================= */
 
 .nav-dropdown {
   position: relative;
+
   display: flex;
   align-items: center;
 }
 
 
-/* Services button */
+/* Make Services behave visually like the other nav links */
 
 .nav-dropdown-button {
-  appearance: none;
-  background: none;
+  position: relative;
 
-  border-top: none;
-  border-left: none;
-  border-right: none;
+  appearance: none;
+
+  background: none;
+  border: none;
+
+  margin: 0;
+  padding: 0;
 
   font: inherit;
+  line-height: inherit;
   color: inherit;
 
   cursor: pointer;
+
+  /* Small baseline correction */
+  transform: translateY(2px);
 }
 
 
-/* Dropdown arrow */
+/* Red underline for Services */
+
+.nav-dropdown-button::before {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: -8px;
+
+  height: 2px;
+
+  background: #9D2235;
+
+  transform: scaleX(0);
+  transform-origin: center;
+
+  transition: transform 0.15s ease;
+}
+
+
+/* Show underline when hovering Services or its menu */
+
+.nav-dropdown:hover .nav-dropdown-button::before,
+.nav-dropdown:focus-within .nav-dropdown-button::before {
+  transform: scaleX(1);
+}
+
+
+/* Arrow */
 
 .nav-dropdown-button::after {
   content: " ▾";
@@ -1743,15 +1793,16 @@ footer a {
 }
 
 
-/* Dropdown panel */
+/* =========================================================
+   DROPDOWN MENU
+   ========================================================= */
 
 .nav-dropdown-menu {
   position: absolute;
 
   /*
-     No gap here. This is what lets you move
-     from Services into the dropdown without
-     making the menu disappear.
+     No gap between Services and the dropdown.
+     This keeps the menu open while moving the cursor.
   */
   top: 100%;
 
@@ -1760,12 +1811,12 @@ footer a {
 
   min-width: 220px;
 
+  padding: 8px;
+
   background: #ffffff;
 
   border: 1px solid rgba(99, 102, 106, 0.25);
   border-radius: 8px;
-
-  padding: 8px;
 
   display: none;
 
@@ -1773,7 +1824,7 @@ footer a {
 }
 
 
-/* Open on hover and remain open while cursor is inside menu */
+/* Open on hover */
 
 .nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown:focus-within .nav-dropdown-menu {
