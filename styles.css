@@ -1681,8 +1681,35 @@ footer a {
 
 }
 /* =========================================================
-   MAIN NAVIGATION DROPDOWN
+   SERVICES DROPDOWN + NAV HOVER
    ========================================================= */
+
+.main-nav > a,
+.nav-dropdown-button {
+  position: relative;
+  padding-bottom: 6px;
+  border-bottom: 2px solid transparent;
+  text-decoration: none;
+}
+
+
+/* Current page red underline */
+
+.main-nav > a.active {
+  border-bottom-color: #9D2235;
+}
+
+
+/* Red underline on hover */
+
+.main-nav > a:hover,
+.nav-dropdown-button:hover,
+.nav-dropdown:hover .nav-dropdown-button {
+  border-bottom-color: #9D2235;
+}
+
+
+/* Dropdown container */
 
 .nav-dropdown {
   position: relative;
@@ -1690,48 +1717,88 @@ footer a {
   align-items: center;
 }
 
+
+/* Services button */
+
 .nav-dropdown-button {
   appearance: none;
   background: none;
-  border: none;
+
+  border-top: none;
+  border-left: none;
+  border-right: none;
+
   font: inherit;
   color: inherit;
+
   cursor: pointer;
-  padding: 0;
 }
+
+
+/* Dropdown arrow */
 
 .nav-dropdown-button::after {
   content: " ▾";
   font-size: 0.75em;
 }
 
+
+/* Dropdown panel */
+
 .nav-dropdown-menu {
   position: absolute;
-  top: calc(100% + 12px);
+
+  /*
+     No gap here. This is what lets you move
+     from Services into the dropdown without
+     making the menu disappear.
+  */
+  top: 100%;
+
   left: 50%;
   transform: translateX(-50%);
+
   min-width: 220px;
 
-  background: white;
+  background: #ffffff;
+
   border: 1px solid rgba(99, 102, 106, 0.25);
   border-radius: 8px;
 
   padding: 8px;
+
   display: none;
 
   z-index: 1000;
 }
 
+
+/* Open on hover and remain open while cursor is inside menu */
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  display: block;
+}
+
+
+/* Dropdown links */
+
 .nav-dropdown-menu a {
   display: block;
+
   padding: 10px 12px;
+
   white-space: nowrap;
+  text-decoration: none;
 }
+
+
+/* Dropdown link hover */
 
 .nav-dropdown-menu a:hover {
   background: rgba(157, 34, 53, 0.08);
+  color: #9D2235;
 }
-
 .nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown:focus-within .nav-dropdown-menu {
   display: block;
