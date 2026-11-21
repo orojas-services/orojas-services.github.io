@@ -273,7 +273,115 @@ footer {
 footer a {
   color: #245b87;
 }
+/* Portfolio Artifacts */
 
+.artifact {
+  border: 1px solid #d9e0e7;
+  border-radius: 8px;
+  background: #ffffff;
+  overflow: hidden;
+  margin-top: 36px;
+}
+
+.artifact-header {
+  padding: 24px 28px;
+  background: #f4f6f8;
+  border-bottom: 1px solid #d9e0e7;
+}
+
+.artifact-header p {
+  margin: 0;
+}
+
+.artifact-label {
+  color: #245b87;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 8px !important;
+}
+
+.artifact-title {
+  color: #172033;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.ticket-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px solid #d9e0e7;
+}
+
+.ticket-meta div {
+  padding: 18px 24px;
+  border-right: 1px solid #d9e0e7;
+}
+
+.ticket-meta div:nth-child(3n) {
+  border-right: none;
+}
+
+.ticket-meta span {
+  display: block;
+}
+
+.meta-label {
+  color: #6b7280;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.meta-value {
+  color: #172033;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.artifact-body {
+  padding: 30px 28px;
+}
+
+.artifact-body h3 {
+  margin-top: 32px;
+}
+
+.artifact-body h3:first-child {
+  margin-top: 0;
+}
+
+.artifact-body ul,
+.artifact-body ol {
+  color: #4b5565;
+  padding-left: 24px;
+}
+
+.artifact-note {
+  margin-top: 28px;
+  padding: 16px 18px;
+  border-left: 3px solid #245b87;
+  background: #f7f9fb;
+  color: #4b5565;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 760px) {
+  .ticket-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-meta div {
+    border-right: none;
+    border-bottom: 1px solid #d9e0e7;
+  }
+
+  .ticket-meta div:last-child {
+    border-bottom: none;
+  }
+}
 /* Mobile */
 
 @media (max-width: 760px) {
