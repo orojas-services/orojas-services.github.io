@@ -522,6 +522,40 @@ footer a {
     padding-bottom: 18px;
   }
 }
+/* Alignment Verification */
+
+.alignment-grid {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.alignment-card {
+  border: 1px solid #d9e0e7;
+  border-radius: 8px;
+  padding: 26px;
+  background: #ffffff;
+}
+
+.alignment-card h3 {
+  margin-bottom: 12px;
+}
+
+.alignment-step {
+  color: #245b87;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 760px) {
+  .alignment-grid {
+    grid-template-columns: 1fr;
+  }
+}
 /* Mobile */
 
 @media (max-width: 760px) {
