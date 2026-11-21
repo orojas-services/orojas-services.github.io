@@ -1680,3 +1680,59 @@ footer a {
   }
 
 }
+/* =========================================================
+   MAIN NAVIGATION DROPDOWN
+   ========================================================= */
+
+.nav-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-dropdown-button {
+  appearance: none;
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-dropdown-button::after {
+  content: " ▾";
+  font-size: 0.75em;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 220px;
+
+  background: white;
+  border: 1px solid rgba(99, 102, 106, 0.25);
+  border-radius: 8px;
+
+  padding: 8px;
+  display: none;
+
+  z-index: 1000;
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 10px 12px;
+  white-space: nowrap;
+}
+
+.nav-dropdown-menu a:hover {
+  background: rgba(157, 34, 53, 0.08);
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  display: block;
+}
