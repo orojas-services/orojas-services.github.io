@@ -1721,50 +1721,79 @@ footer a {
 
 
 /* =========================================================
-   SERVICES
+   SERVICES NAVIGATION DROPDOWN
    ========================================================= */
+
+/* Make the dropdown participate in the nav exactly like links */
 
 .nav-dropdown {
   position: relative;
-
   display: flex;
   align-items: center;
 }
 
 
-/* Make Services behave visually like the other nav links */
+/* Match Services visually with the other nav items */
 
 .nav-dropdown-button {
-  position: relative;
-
   appearance: none;
-
-  background: none;
-  border: none;
+  background: transparent;
+  border: 0;
 
   margin: 0;
   padding: 0;
 
-  font: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
   line-height: inherit;
+
   color: inherit;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 
   cursor: pointer;
 
-  /* Small baseline correction */
-  transform: translateY(2px);
+  position: relative;
 }
 
 
-/* Red underline for Services */
+/* Arrow */
 
-.nav-dropdown-button::before {
+.dropdown-arrow {
+  font-size: 0.72em;
+  line-height: 1;
+}
+
+
+/* =========================================================
+   NAV HOVER UNDERLINES
+   ========================================================= */
+
+/*
+   Do not touch .active.
+   Your existing stylesheet already handles the active-page line.
+*/
+
+.main-nav > a:not(.active),
+.nav-dropdown-button {
+  position: relative;
+}
+
+
+/* Hover line */
+
+.main-nav > a:not(.active)::after,
+.nav-dropdown-button::after {
   content: "";
+
   position: absolute;
 
   left: 0;
   right: 0;
-  bottom: -8px;
+  bottom: -6px;
 
   height: 2px;
 
@@ -1777,19 +1806,19 @@ footer a {
 }
 
 
-/* Show underline when hovering Services or its menu */
+/* Normal links */
 
-.nav-dropdown:hover .nav-dropdown-button::before,
-.nav-dropdown:focus-within .nav-dropdown-button::before {
+.main-nav > a:not(.active):hover::after {
   transform: scaleX(1);
 }
 
 
-/* Arrow */
+/* Services */
 
-.nav-dropdown-button::after {
-  content: " ▾";
-  font-size: 0.75em;
+.nav-dropdown:hover .nav-dropdown-button::after,
+.nav-dropdown.open .nav-dropdown-button::after,
+.nav-dropdown:focus-within .nav-dropdown-button::after {
+  transform: scaleX(1);
 }
 
 
@@ -1800,13 +1829,9 @@ footer a {
 .nav-dropdown-menu {
   position: absolute;
 
-  /*
-     No gap between Services and the dropdown.
-     This keeps the menu open while moving the cursor.
-  */
   top: 100%;
-
   left: 50%;
+
   transform: translateX(-50%);
 
   min-width: 220px;
@@ -1824,10 +1849,13 @@ footer a {
 }
 
 
-/* Open on hover */
+/* Desktop: hover opens it */
 
 .nav-dropdown:hover .nav-dropdown-menu,
-.nav-dropdown:focus-within .nav-dropdown-menu {
+.nav-dropdown:focus-within .nav-dropdown-menu,
+
+/* Mobile/touch: JavaScript click opens it */
+.nav-dropdown.open .nav-dropdown-menu {
   display: block;
 }
 
@@ -1840,6 +1868,7 @@ footer a {
   padding: 10px 12px;
 
   white-space: nowrap;
+
   text-decoration: none;
 }
 
@@ -1850,7 +1879,23 @@ footer a {
   background: rgba(157, 34, 53, 0.08);
   color: #9D2235;
 }
-.nav-dropdown:hover .nav-dropdown-menu,
-.nav-dropdown:focus-within .nav-dropdown-menu {
-  display: block;
+
+
+/* =========================================================
+   MOBILE / NARROW SCREENS
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .nav-dropdown {
+    flex-shrink: 0;
+  }
+
+  .nav-dropdown-menu {
+    left: 0;
+    transform: none;
+
+    min-width: 210px;
+  }
+
 }
