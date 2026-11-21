@@ -18,6 +18,13 @@ a {
   color: inherit;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Navigation */
+
 header {
   border-bottom: 1px solid #e3e7ee;
   background: #ffffff;
@@ -54,40 +61,61 @@ nav div a:focus {
   color: #245b87;
 }
 
+/* Main Layout */
+
 main {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 80px 32px;
+  padding: 0 32px;
 }
+
+section {
+  padding: 80px 0;
+}
+
+.hero {
+  min-height: 72vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+/* Typography */
 
 h1,
 h2,
 h3 {
   line-height: 1.15;
   margin-top: 0;
+  color: #172033;
 }
 
 h1 {
-  font-size: clamp(2.6rem, 6vw, 4.8rem);
-  letter-spacing: -0.04em;
-  max-width: 850px;
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  letter-spacing: -0.045em;
+  max-width: 880px;
+  margin-bottom: 26px;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.025em;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.35rem;
+  margin-bottom: 12px;
 }
 
 p {
   max-width: 720px;
   color: #4b5565;
   font-size: 1.05rem;
-}
-
-.hero {
-  min-height: 65vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 .eyebrow {
@@ -99,14 +127,28 @@ p {
   margin-bottom: 18px;
 }
 
+.lead {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  max-width: 760px;
+}
+
+/* Buttons */
+
+.button-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
 .button {
   display: inline-block;
-  margin-top: 24px;
-  padding: 12px 20px;
+  padding: 13px 22px;
   background: #172033;
-  color: white;
+  color: #ffffff;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 5px;
   font-weight: 700;
 }
 
@@ -115,7 +157,126 @@ p {
   background: #245b87;
 }
 
-@media (max-width: 700px) {
+.button-secondary {
+  background: #ffffff;
+  color: #172033;
+  border: 1px solid #bfc7d2;
+}
+
+.button-secondary:hover,
+.button-secondary:focus {
+  background: #f4f6f8;
+  color: #172033;
+}
+
+/* Section Styling */
+
+.section-border {
+  border-top: 1px solid #e3e7ee;
+}
+
+.section-heading {
+  margin-bottom: 42px;
+}
+
+/* Project Cards */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.project-card {
+  border: 1px solid #dfe4ea;
+  border-radius: 8px;
+  padding: 32px;
+  background: #ffffff;
+}
+
+.project-card:hover {
+  border-color: #aeb9c7;
+}
+
+.project-card p {
+  font-size: 1rem;
+}
+
+.project-meta {
+  color: #245b87;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+
+.project-status {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background: #eef3f7;
+  color: #435266;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+/* Skills / Focus Areas */
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.tag {
+  padding: 7px 11px;
+  border: 1px solid #dce2e8;
+  border-radius: 4px;
+  color: #435266;
+  background: #fafbfc;
+  font-size: 0.9rem;
+}
+
+/* Two-column sections */
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 72px;
+  align-items: start;
+}
+
+/* Footer */
+
+footer {
+  margin-top: 80px;
+  border-top: 1px solid #e3e7ee;
+}
+
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.footer-inner p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+footer a {
+  color: #245b87;
+}
+
+/* Mobile */
+
+@media (max-width: 760px) {
   nav {
     padding: 18px 20px;
     align-items: flex-start;
@@ -129,6 +290,30 @@ p {
   }
 
   main {
-    padding: 56px 20px;
+    padding: 0 20px;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .project-grid,
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .two-column {
+    gap: 36px;
+  }
+
+  .footer-inner {
+    padding: 28px 20px;
+    flex-direction: column;
   }
 }
