@@ -1925,3 +1925,43 @@ footer a {
   }
 
 }
+/* =========================================================
+   DROPDOWN LAYER FIX
+   ========================================================= */
+
+.site-header {
+  position: relative;
+  z-index: 3000;
+  overflow: visible;
+}
+
+.header-inner {
+  position: relative;
+  z-index: 3001;
+  overflow: visible;
+}
+
+.main-nav {
+  position: relative;
+  z-index: 3002;
+  overflow: visible;
+}
+
+.nav-dropdown {
+  position: relative;
+  z-index: 3003;
+  overflow: visible;
+}
+
+.nav-dropdown-menu {
+  z-index: 4000;
+}
+
+
+/* Keep homepage content underneath the dropdown */
+
+.home-main,
+.home-panel {
+  position: relative;
+  z-index: 1;
+}
