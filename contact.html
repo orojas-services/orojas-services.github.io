@@ -13,7 +13,7 @@
 
   <meta
     name="description"
-    content="Contact Orlando A. Rojas Barbosa, MA regarding instructional design, English–Spanish editing and translation, higher education, teaching, online learning, and professional collaboration."
+    content="Contact Orlando A. Rojas Barbosa, MA regarding instructional design, English–Spanish editing and translation, university teaching, higher education, and related professional opportunities."
   >
 
   <link rel="stylesheet" href="styles.css">
@@ -69,12 +69,14 @@
             aria-controls="services-menu"
           >
             Services
+
             <span
               class="dropdown-arrow"
               aria-hidden="true"
             >
               ▾
             </span>
+
           </button>
 
 
@@ -126,7 +128,9 @@
   <main>
 
 
-    <!-- INTRO -->
+    <!-- =====================================================
+         INTRO
+         ===================================================== -->
 
     <section>
 
@@ -140,9 +144,10 @@
 
       <p class="lead">
         I welcome conversations about instructional design,
-        English–Spanish editing and translation, higher education,
-        teaching, online learning, and related professional opportunities.
+        English–Spanish editing and translation, university teaching,
+        higher education, and related professional opportunities.
       </p>
+
 
       <div class="button-row">
 
@@ -159,7 +164,9 @@
 
 
 
-    <!-- CONTACT INFORMATION -->
+    <!-- =====================================================
+         CONTACT INFORMATION & PROFESSIONAL AREAS
+         ===================================================== -->
 
     <section class="section-border">
 
@@ -231,6 +238,7 @@
             Areas of work
           </h2>
 
+
           <div class="tag-list">
 
             <span class="tag">
@@ -238,27 +246,7 @@
             </span>
 
             <span class="tag">
-              Online Learning
-            </span>
-
-            <span class="tag">
-              Course Quality
-            </span>
-
-            <span class="tag">
-              Editing
-            </span>
-
-            <span class="tag">
-              English–Spanish Translation
-            </span>
-
-            <span class="tag">
-              Academic Communication
-            </span>
-
-            <span class="tag">
-              Higher Education
+              Editing & Translation
             </span>
 
             <span class="tag">
@@ -266,11 +254,7 @@
             </span>
 
             <span class="tag">
-              Assessment
-            </span>
-
-            <span class="tag">
-              Learning Technologies
+              Higher Education
             </span>
 
           </div>
@@ -284,7 +268,9 @@
 
 
 
-    <!-- SERVICES -->
+    <!-- =====================================================
+         EXPLORE MY WORK
+         ===================================================== -->
 
     <section class="section-border">
 
@@ -300,6 +286,8 @@
       <div class="project-grid">
 
 
+        <!-- INSTRUCTIONAL DESIGN -->
+
         <article class="project-card">
 
           <h3>
@@ -307,9 +295,9 @@
           </h3>
 
           <p>
-            Online course development, course maintenance,
-            instructional content review, quality assurance,
-            Canvas, assessment, and learning technologies.
+            Online course development, maintenance, and quality
+            review, with experience in Canvas, instructional content,
+            assessment, and higher-education course-development workflows.
           </p>
 
           <div class="button-row">
@@ -326,6 +314,8 @@
         </article>
 
 
+
+        <!-- EDITING & TRANSLATION -->
 
         <article class="project-card">
 
@@ -353,6 +343,8 @@
 
 
 
+        <!-- TEACHING -->
+
         <article class="project-card">
 
           <h3>
@@ -361,7 +353,7 @@
 
           <p>
             Undergraduate English communication, rhetoric and argumentation,
-            assessment, rubric-based feedback, and learner-centered instruction
+            assessment, rubric-based feedback, and academic communication
             across face-to-face and online environments.
           </p>
 
@@ -439,69 +431,33 @@
        ===================================================== -->
 
   <script>
+    const servicesDropdown = document.querySelector(".nav-dropdown");
+    const servicesButton = document.querySelector(".nav-dropdown-button");
 
-    const servicesDropdown =
-      document.querySelector(".nav-dropdown");
+    servicesButton.addEventListener("click", function (event) {
+      event.stopPropagation();
 
-    const servicesButton =
-      document.querySelector(".nav-dropdown-button");
+      const isOpen = servicesDropdown.classList.toggle("open");
 
+      servicesButton.setAttribute(
+        "aria-expanded",
+        isOpen ? "true" : "false"
+      );
+    });
 
-    servicesButton.addEventListener(
-      "click",
-      function (event) {
-
-        event.stopPropagation();
-
-        const isOpen =
-          servicesDropdown.classList.toggle("open");
-
-        servicesButton.setAttribute(
-          "aria-expanded",
-          isOpen ? "true" : "false"
-        );
-
+    document.addEventListener("click", function (event) {
+      if (!servicesDropdown.contains(event.target)) {
+        servicesDropdown.classList.remove("open");
+        servicesButton.setAttribute("aria-expanded", "false");
       }
-    );
+    });
 
-
-    document.addEventListener(
-      "click",
-      function (event) {
-
-        if (!servicesDropdown.contains(event.target)) {
-
-          servicesDropdown.classList.remove("open");
-
-          servicesButton.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-
-        }
-
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        servicesDropdown.classList.remove("open");
+        servicesButton.setAttribute("aria-expanded", "false");
       }
-    );
-
-
-    document.addEventListener(
-      "keydown",
-      function (event) {
-
-        if (event.key === "Escape") {
-
-          servicesDropdown.classList.remove("open");
-
-          servicesButton.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-
-        }
-
-      }
-    );
-
+    });
   </script>
 
 
