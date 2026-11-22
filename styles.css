@@ -1965,3 +1965,47 @@ footer a {
   position: relative;
   z-index: 1;
 }
+/* =========================================================
+   MOBILE SERVICES DROPDOWN FIX
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .site-header,
+  .header-inner,
+  .main-nav,
+  .nav-dropdown {
+    overflow: visible !important;
+  }
+
+  .main-nav {
+    position: relative;
+    z-index: 5000;
+  }
+
+  .nav-dropdown {
+    position: relative;
+    z-index: 5001;
+  }
+
+  .nav-dropdown-menu {
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+    transform: none;
+
+    min-width: 220px;
+    width: max-content;
+    max-width: calc(100vw - 24px);
+
+    z-index: 6000;
+
+    background: #ffffff;
+  }
+
+  .nav-dropdown.open .nav-dropdown-menu {
+    display: block;
+  }
+
+}
