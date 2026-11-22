@@ -1899,3 +1899,29 @@ footer a {
   }
 
 }
+/* =========================================================
+   KEEP SERVICES DROPDOWN USABLE AT ALL SCREEN SIZES
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .main-nav {
+    overflow: visible;
+    flex-wrap: wrap;
+  }
+
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .nav-dropdown-menu {
+    top: 100%;
+    left: 0;
+    transform: none;
+
+    min-width: 220px;
+
+    z-index: 2000;
+  }
+
+}
